@@ -55,9 +55,11 @@ Sections read the content module directly (no prop drilling); the one exception 
 ### Task 1: Project scaffold (Next.js, strict TS, Tailwind v4, static export)
 
 **Files:**
+
 - Create: `package.json`, `.gitignore`, `next.config.ts`, `tsconfig.json`, `postcss.config.mjs`, `eslint.config.mjs`, `src/app/globals.css` (minimal for now), `src/app/layout.tsx` (minimal), `src/app/page.tsx` (minimal)
 
 **Interfaces:**
+
 - Consumes: nothing (first code task).
 - Produces: a repo where `npm run build` emits `out/index.html`, and `npm run lint` / `npm run typecheck` / `npm run format:check` pass. Path alias `@/*` → `src/*`.
 
@@ -228,9 +230,11 @@ git commit -m "chore: scaffold Next.js 15 + strict TS + Tailwind v4 static-expor
 ### Task 2: Design tokens, global styles, and page shell
 
 **Files:**
+
 - Modify: `src/app/globals.css`, `src/app/layout.tsx`
 
 **Interfaces:**
+
 - Consumes: Task 1 scaffold.
 - Produces: Tailwind color tokens usable in classes by every later task: `steel-950 #0b0f14`, `steel-900 #0f151c`, `steel-800 #12181f`, `ink-100 #e6edf3`, `ink-300 #cdd8e2`, `ink-400 #9fb0bf`, `ink-500 #7f93a4`, `amber-400 #f7ad57`, `amber-500 #f5a623`, `amber-600 #ef9414`, `navy-900 #0b2f4a`, `navy-700 #125b8a`, `status-ok #3ecf8e`, `status-info #4aa3e0`. Named utilities `bg-blueprint`, `bg-hero-glow`, `bg-navy-wash`. Fonts `font-sans` / `font-mono` (system stacks). Body defaults: dark steel background, light text.
 
@@ -347,9 +351,11 @@ git commit -m "feat: design tokens, blueprint/glow utilities, global base styles
 ### Task 3: Test infrastructure + typed content module
 
 **Files:**
+
 - Create: `vitest.config.ts`, `vitest.setup.ts`, `src/content/site.ts`, `src/content/site.test.ts`
 
 **Interfaces:**
+
 - Consumes: Task 1 toolchain.
 - Produces: the content module every section imports. Exact exports:
   - `interface Metric { value: string; label: string }`
@@ -360,7 +366,7 @@ git commit -m "feat: design tokens, blueprint/glow utilities, global base styles
   - `interface SkillGroup { label: string; skills: string[] }`
   - `interface DemoState { live: boolean; url: string; fallbackHref: string }`
   - `const SITE_URL: string` · `const identity: { name; role; location; tagline }` (all string fields) · `const links: { email; github; linkedin; cv }` (all strings) · `const demo: DemoState` · `const metrics: Metric[]` · `const heroChips: string[]` · `const loadRows: LoadRow[]` · `const timeline: TimelineStop[]` · `const features: Feature[]` · `const skillGroups: SkillGroup[]`
-  Also produces a working `npm test` (Vitest + jsdom + Testing Library + vitest-axe).
+    Also produces a working `npm test` (Vitest + jsdom + Testing Library + vitest-axe).
 
 - [ ] **Step 1: Install test dependencies**
 
@@ -533,10 +539,30 @@ export const heroChips: string[] = [
 ];
 
 export const loadRows: LoadRow[] = [
-  { id: "#10428", lane: "Atlanta, GA → Dallas, TX", status: "DELIVERED", kind: "ok" },
-  { id: "#10431", lane: "Memphis, TN → Chicago, IL", status: "IN-TRANSIT", kind: "warn" },
-  { id: "#10436", lane: "Denver, CO → Phoenix, AZ", status: "TENDERED", kind: "info" },
-  { id: "#10442", lane: "Kansas City, MO → Omaha, NE", status: "PLAN", kind: "muted" },
+  {
+    id: "#10428",
+    lane: "Atlanta, GA → Dallas, TX",
+    status: "DELIVERED",
+    kind: "ok",
+  },
+  {
+    id: "#10431",
+    lane: "Memphis, TN → Chicago, IL",
+    status: "IN-TRANSIT",
+    kind: "warn",
+  },
+  {
+    id: "#10436",
+    lane: "Denver, CO → Phoenix, AZ",
+    status: "TENDERED",
+    kind: "info",
+  },
+  {
+    id: "#10442",
+    lane: "Kansas City, MO → Omaha, NE",
+    status: "PLAN",
+    kind: "muted",
+  },
 ];
 
 export const timeline: TimelineStop[] = [
@@ -642,10 +668,12 @@ git commit -m "feat: test infrastructure (vitest/RTL/axe) and typed site content
 ### Task 4: Small primitives — SectionEyebrow, MonoChip, StatusChip, MetricCard
 
 **Files:**
+
 - Create: `src/components/SectionEyebrow.tsx`, `src/components/MonoChip.tsx`, `src/components/StatusChip.tsx`, `src/components/MetricCard.tsx`
 - Test: `src/components/primitives.test.tsx`
 
 **Interfaces:**
+
 - Consumes: `Metric`, `StatusKind` from `@/content/site` (Task 3).
 - Produces (exact signatures later tasks rely on):
   - `SectionEyebrow({ children }: { children: React.ReactNode })`
@@ -753,7 +781,13 @@ const kindClasses: Record<StatusKind, string> = {
   muted: "text-ink-400 border-ink-400/30 bg-ink-400/10",
 };
 
-export function StatusChip({ label, kind }: { label: string; kind: StatusKind }) {
+export function StatusChip({
+  label,
+  kind,
+}: {
+  label: string;
+  kind: StatusKind;
+}) {
   return (
     <span
       className={`inline-block rounded-[5px] border px-2 py-0.5 font-mono text-[9.5px] font-semibold tracking-wider whitespace-nowrap ${kindClasses[kind]}`}
@@ -801,10 +835,12 @@ git commit -m "feat: design-system primitives (eyebrow, chips, metric card)"
 ### Task 5: ConsolePanel + LoadsBoard
 
 **Files:**
+
 - Create: `src/components/ConsolePanel.tsx`, `src/components/LoadsBoard.tsx`
 - Test: `src/components/LoadsBoard.test.tsx`
 
 **Interfaces:**
+
 - Consumes: `StatusChip` (Task 4), `loadRows` (Task 3).
 - Produces:
   - `ConsolePanel({ title, meta, children }: { title: string; meta?: string; children: React.ReactNode })` — framed window with faux chrome bar
@@ -929,10 +965,12 @@ git commit -m "feat: ConsolePanel frame and LoadsBoard panel"
 ### Task 6: Hero section
 
 **Files:**
+
 - Create: `src/sections/Hero.tsx`
 - Test: `src/sections/Hero.test.tsx`
 
 **Interfaces:**
+
 - Consumes: `MetricCard`, `MonoChip` (Task 4); `identity`, `links`, `metrics`, `heroChips`, `demo`, `DemoState` (Task 3).
 - Produces: `Hero({ demoState }: { demoState?: DemoState })` — `demoState` defaults to the content module's `demo`. Renders a `<header>` landmark.
 
@@ -1081,10 +1119,12 @@ git commit -m "feat: hero section with demo-fallback CTA, metrics, tech chips"
 ### Task 7: Journey section (route log)
 
 **Files:**
+
 - Create: `src/sections/Journey.tsx`
 - Test: `src/sections/Journey.test.tsx`
 
 **Interfaces:**
+
 - Consumes: `SectionEyebrow` (Task 4); `timeline` (Task 3).
 - Produces: `Journey()` — a `<section id="journey">` with an ordered list of the three timeline stops.
 
@@ -1186,11 +1226,13 @@ git commit -m "feat: journey section (route-log timeline)"
 ### Task 8: Kelévo showcase section
 
 **Files:**
+
 - Create: `src/sections/Showcase.tsx`
 - Modify: `src/content/site.ts` (add `Screenshot` type + `screenshots` export)
 - Test: `src/sections/Showcase.test.tsx`
 
 **Interfaces:**
+
 - Consumes: `SectionEyebrow` (Task 4), `LoadsBoard` (Task 5); `features`, `demo` (Task 3).
 - Produces:
   - In `@/content/site`: `interface Screenshot { src: string; title: string; alt: string }` and `const screenshots: Screenshot[]` (ships empty; owner populates later — see Task 14 README).
@@ -1340,7 +1382,9 @@ export function Showcase({
               key={feature.title}
               className="rounded-xl border border-ink-400/15 bg-steel-900 p-4"
             >
-              <h3 className="text-sm font-bold text-ink-100">{feature.title}</h3>
+              <h3 className="text-sm font-bold text-ink-100">
+                {feature.title}
+              </h3>
               <p className="mt-1.5 text-xs leading-relaxed text-ink-400">
                 {feature.description}
               </p>
@@ -1380,10 +1424,12 @@ git commit -m "feat: Kelévo showcase section with loads board, screenshot slots
 ### Task 9: Case study section
 
 **Files:**
+
 - Create: `src/sections/CaseStudy.tsx`
 - Test: `src/sections/CaseStudy.test.tsx`
 
 **Interfaces:**
+
 - Consumes: `SectionEyebrow`, `MonoChip` (Task 4), `ConsolePanel` (Task 5).
 - Produces: `CaseStudy()` — a `<section id="case-study">` (the Hero/Showcase fallback CTA target) with four sub-blocks: Problem, Architecture (CSS diagram inside a ConsolePanel), Hard decisions, Outcomes.
 
@@ -1443,11 +1489,20 @@ const architecture = [
   },
   {
     layer: "Domain core",
-    parts: ["Shared TS domain package", "Lifecycle state machines", "Org-scoped services"],
+    parts: [
+      "Shared TS domain package",
+      "Lifecycle state machines",
+      "Org-scoped services",
+    ],
   },
   {
     layer: "Data & integrations",
-    parts: ["PostgreSQL + Prisma", "Cloudflare R2 documents", "Stripe billing", "AI/OCR intake"],
+    parts: [
+      "PostgreSQL + Prisma",
+      "Cloudflare R2 documents",
+      "Stripe billing",
+      "AI/OCR intake",
+    ],
   },
   {
     layer: "Infra",
@@ -1496,8 +1551,8 @@ export function CaseStudy() {
           lived it daily: every load means a rate confirmation to parse, a
           driver to assign, status calls to brokers, and a settlement to
           reconcile — all manual, all error-prone. Existing TMS products are
-          priced and designed for large fleets. Kelévo is the system I wished
-          I had at the dispatch desk.
+          priced and designed for large fleets. Kelévo is the system I wished I
+          had at the dispatch desk.
         </p>
 
         <h3 className="mt-10 text-lg font-bold text-ink-100">Architecture</h3>
@@ -1575,10 +1630,12 @@ git commit -m "feat: case study section (problem, architecture, decisions, outco
 ### Task 10: Skills, Contact, footer — and the CV asset
 
 **Files:**
+
 - Create: `src/sections/Skills.tsx`, `src/sections/Contact.tsx`, `public/cv/Nick_Kalaitzidis_CV_2026.pdf` (copied)
 - Test: `src/sections/SkillsContact.test.tsx`
 
 **Interfaces:**
+
 - Consumes: `SectionEyebrow`, `MonoChip` (Task 4); `skillGroups`, `links`, `identity` (Task 3).
 - Produces:
   - `Skills()` — `<section id="skills">` with the five grouped chip rows
@@ -1726,8 +1783,7 @@ export function Contact() {
 
         <footer className="mt-14 border-t border-ink-400/10 pt-6">
           <p className="font-mono text-[10.5px] tracking-wider text-ink-500">
-            © 2026 {identity.name} · built with Next.js · deployed on
-            Cloudflare
+            © 2026 {identity.name} · built with Next.js · deployed on Cloudflare
           </p>
         </footer>
       </div>
@@ -1754,10 +1810,12 @@ git commit -m "feat: skills and contact sections, footer, CV download asset"
 ### Task 11: Page assembly + accessibility test
 
 **Files:**
+
 - Modify: `src/app/page.tsx`
 - Test: `src/app/page.test.tsx`
 
 **Interfaces:**
+
 - Consumes: all six sections (Tasks 6–10).
 - Produces: the complete assembled page — `Hero` header, then `<main>` containing Journey, Showcase, CaseStudy, Skills, Contact.
 
@@ -1857,10 +1915,12 @@ git commit -m "feat: assemble single-page portfolio with a11y regression test"
 ### Task 12: SEO — metadata, OG image, favicon, robots, sitemap
 
 **Files:**
+
 - Modify: `src/app/layout.tsx`
 - Create: `src/app/icon.svg`, `src/app/opengraph-image.tsx`, `src/app/robots.ts`, `src/app/sitemap.ts`
 
 **Interfaces:**
+
 - Consumes: `SITE_URL`, `identity` (Task 3).
 - Produces: build artifacts `out/icon.svg`, `out/opengraph-image.png`, `out/robots.txt`, `out/sitemap.xml`, and full metadata in the page `<head>`.
 
@@ -1925,37 +1985,35 @@ export const alt = `${identity.name} — ${identity.role}`;
 
 export default function OgImage() {
   return new ImageResponse(
-    (
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        padding: 80,
+        background: "#0b0f14",
+        color: "#e6edf3",
+      }}
+    >
       <div
         style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          padding: 80,
-          background: "#0b0f14",
-          color: "#e6edf3",
+          fontSize: 26,
+          letterSpacing: 6,
+          color: "#f5a623",
+          textTransform: "uppercase",
         }}
       >
-        <div
-          style={{
-            fontSize: 26,
-            letterSpacing: 6,
-            color: "#f5a623",
-            textTransform: "uppercase",
-          }}
-        >
-          {identity.role}
-        </div>
-        <div style={{ fontSize: 84, fontWeight: 800, marginTop: 16 }}>
-          {identity.name}
-        </div>
-        <div style={{ fontSize: 32, color: "#9fb0bf", marginTop: 24 }}>
-          Built Kelévo — a TMS SaaS — solo, zero to launch.
-        </div>
+        {identity.role}
       </div>
-    ),
+      <div style={{ fontSize: 84, fontWeight: 800, marginTop: 16 }}>
+        {identity.name}
+      </div>
+      <div style={{ fontSize: 32, color: "#9fb0bf", marginTop: 24 }}>
+        Built Kelévo — a TMS SaaS — solo, zero to launch.
+      </div>
+    </div>,
     size,
   );
 }
@@ -2015,9 +2073,11 @@ git commit -m "feat: SEO metadata, OG image, favicon, robots, sitemap"
 ### Task 13: CI workflow
 
 **Files:**
+
 - Create: `.github/workflows/ci.yml`
 
 **Interfaces:**
+
 - Consumes: npm scripts from Task 1/3.
 - Produces: a `validate` job on every push/PR, and a `deploy` job (master only) that Task 14 completes. The deploy job is included here but will fail until Task 14's wrangler config + secrets exist — that is expected and documented.
 
@@ -2091,9 +2151,11 @@ Expected: `validate` job SUCCESS. `deploy` job FAILS at the wrangler step (no wr
 ### Task 14: Cloudflare deploy config + README
 
 **Files:**
+
 - Create: `wrangler.jsonc`, `README.md`
 
 **Interfaces:**
+
 - Consumes: `out/` static export (Task 1), CI deploy job (Task 13).
 - Produces: a deployable Workers-static-assets config; README documenting setup + the two owner actions (GitHub secrets, custom-domain activation).
 
@@ -2112,9 +2174,9 @@ npm install -D wrangler
   "assets": {
     "directory": "./out",
     "html_handling": "auto-trailing-slash",
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
   },
-  "routes": [{ "pattern": "nickkalas.dev", "custom_domain": true }]
+  "routes": [{ "pattern": "nickkalas.dev", "custom_domain": true }],
 }
 ```
 

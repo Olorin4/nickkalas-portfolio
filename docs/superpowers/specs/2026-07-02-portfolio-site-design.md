@@ -56,8 +56,10 @@ injected with founder momentum so it never reads as a cold dashboard:
 Sections in order, each an anchor target:
 
 ### 1. Hero
+
 The Hybrid-2 mockup realized: steel base + blueprint grid + navy wash + amber
 glow. Contains:
+
 - "OPEN TO WORK — founding engineer" pill (green live dot, mono, uppercase).
 - Name (oversized, tight tracking) + mono role line
   (FOUNDER & FOUNDING SOFTWARE ENGINEER · GREECE).
@@ -71,6 +73,7 @@ glow. Contains:
   Docker, Stripe, AI/OCR pipeline (last one amber-highlighted).
 
 ### 2. Journey ("route log")
+
 Short ops-console-styled timeline — 3 stops, styled like dispatch route
 entries: winery owner/manager (2011–2022) → truck dispatcher, Iron Wing
 Dispatching (2024–2025) → founder & engineer, Kelevo (2024–present).
@@ -78,6 +81,7 @@ Self-taught via The Odin Project noted here. This section explains the
 unusual path — it is the differentiator, kept tight (no filler).
 
 ### 3. Kelévo showcase (the star)
+
 - Live-demo CTA repeated + `live · demo.kelevo.ai` mono affordance.
 - Real product screenshots (curated, **seeded/fictional data only** — never
   real customer data), framed as console panels with faux window chrome.
@@ -86,6 +90,7 @@ unusual path — it is the differentiator, kept tight (no filler).
   multi-tenant auth, Stripe billing.
 
 ### 4. Case study
+
 Written for two readers — skimmable headlines for recruiters, depth for
 engineers. Flow: problem (trucking ops pain observed first-hand) →
 architecture (diagram: monorepo, backend/Prisma/Postgres, Lite/Pro frontends,
@@ -95,10 +100,12 @@ document pipeline) → outcomes (launched product, CI discipline, typed
 codebase).
 
 ### 5. Stack & skills
+
 Grouped mono chips mirroring the CV taxonomy: Languages / Product & Frontend /
 Backend / Cloud & DevOps / Execution.
 
 ### 6. Contact
+
 Email (nick.kalas@proton.me), GitHub (Olorin4), LinkedIn (nick-kalas),
 **CV PDF download** (copied into the repo from kelevoTMS
 `docs/Nick_Kalaitzidis_Startup_Founding_Engineer_CV_2026.pdf`).
@@ -136,13 +143,13 @@ gets its own brainstorm/plan in the kelevoTMS repo.
 
 ## Decisions log
 
-| Decision | Choice |
-| --- | --- |
-| Separate repo vs. inside kelevoTMS | Separate repo (`nickkalas-portfolio`) |
-| Target audience | Both startups and logistics software companies |
-| Kelevo experience | Live demo link (primary) + case study backbone |
-| Stack | Next.js + TypeScript strict + Tailwind v4, static export |
-| Structure | Single-page scroll |
-| Visual direction | Hybrid 2 — "Ops Console, Founder-Grade" (from C+D blend) |
-| Demo strategy | Dedicated demo env + auto-login (companion task) |
-| Hosting | New personal domain + Cloudflare Workers static assets |
+| Decision                           | Choice                                                   |
+| ---------------------------------- | -------------------------------------------------------- |
+| Separate repo vs. inside kelevoTMS | Separate repo (`nickkalas-portfolio`)                    |
+| Target audience                    | Both startups and logistics software companies           |
+| Kelevo experience                  | Live demo link (primary) + case study backbone           |
+| Stack                              | Next.js + TypeScript strict + Tailwind v4, static export |
+| Structure                          | Single-page scroll                                       |
+| Visual direction                   | Hybrid 2 — "Ops Console, Founder-Grade" (from C+D blend) |
+| Demo strategy                      | Dedicated demo env + auto-login (companion task)         |
+| Hosting                            | New personal domain + Cloudflare Workers static assets   |
