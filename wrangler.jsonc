@@ -6,5 +6,10 @@
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page",
   },
-  "routes": [{ "pattern": "nickkalas.dev", "custom_domain": true }],
+  // Custom domain nickkalas.dev is bound to this Worker at the account level
+  // (via PUT /accounts/:id/workers/domains) and persists across deploys.
+  // It is intentionally NOT declared as a route here: the CI deploy token is
+  // account-scoped, and a declared custom_domain route makes wrangler run a
+  // zone-level route-conflict check that fails without Zone:Workers Routes
+  // permission. Re-add the route only if the token gains zone-level scope.
 }

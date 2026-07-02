@@ -21,9 +21,11 @@ static assets via `wrangler.jsonc`.
 One-time setup (owner actions):
 
 1. GitHub repo secrets: `CLOUDFLARE_API_TOKEN` (Workers Scripts:Edit
-   token) and `CLOUDFLARE_ACCOUNT_ID`.
-2. The domain must be active in the Cloudflare account; the custom
-   domain binds from `wrangler.jsonc` `routes` on first deploy.
+   token) and `CLOUDFLARE_ACCOUNT_ID`. DONE 2026-07-02.
+2. Custom domain nickkalas.dev is bound to the Worker at the account
+   level (workers/domains API; DONE 2026-07-02) and persists across
+   deploys — see the comment in `wrangler.jsonc` for why it is not
+   declared as a route.
 3. When demo.kelevo.ai goes live, flip `demo.live` to `true` in
    `src/content/site.ts`.
 4. Product screenshots: drop curated PNGs (seeded/fictional data
