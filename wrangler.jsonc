@@ -1,0 +1,10 @@
+{
+  "name": "nickkalas-portfolio",
+  "compatibility_date": "2026-07-01",
+  "assets": {
+    "directory": "./out",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page",
+  },
+  "routes": [{ "pattern": "nickkalas.dev", "custom_domain": true }],
+}
