@@ -60,7 +60,7 @@ export const demo: DemoState = {
 
 export const metrics: Metric[] = [
   { value: "0→1", label: "Solo build, zero to launch" },
-  { value: "11 yrs", label: "Ops & dispatch domain" },
+  { value: "11 yrs", label: "Operations & business ownership" },
   { value: "100%", label: "Product → deploy owned" },
 ];
 
