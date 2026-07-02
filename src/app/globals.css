@@ -1,1 +1,82 @@
 @import "tailwindcss";
+
+@theme {
+  --color-steel-950: #0b0f14;
+  --color-steel-900: #0f151c;
+  --color-steel-800: #12181f;
+
+  --color-ink-100: #e6edf3;
+  --color-ink-300: #cdd8e2;
+  --color-ink-400: #9fb0bf;
+  --color-ink-500: #7f93a4;
+
+  --color-amber-400: #f7ad57;
+  --color-amber-500: #f5a623;
+  --color-amber-600: #ef9414;
+
+  --color-navy-900: #0b2f4a;
+  --color-navy-700: #125b8a;
+
+  --color-status-ok: #3ecf8e;
+  --color-status-info: #4aa3e0;
+
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  --font-mono:
+    ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+}
+
+/* Faint blueprint grid used by hero and console surfaces. */
+@utility bg-blueprint {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      color-mix(in srgb, var(--color-ink-400) 6%, transparent) 0 1px,
+      transparent 1px 38px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--color-ink-400) 6%, transparent) 0 1px,
+      transparent 1px 38px
+    );
+}
+
+/* Warm amber radial glow, top-right (founder warmth over the console). */
+@utility bg-hero-glow {
+  background-image: radial-gradient(
+    circle at 88% 0%,
+    color-mix(in srgb, var(--color-amber-500) 18%, transparent),
+    transparent 42%
+  );
+}
+
+/* Navy -> transparent diagonal wash behind the hero identity. */
+@utility bg-navy-wash {
+  background-image: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-navy-700) 30%, transparent),
+    color-mix(in srgb, var(--color-navy-900) 10%, transparent) 52%,
+    transparent 74%
+  );
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+body {
+  @apply bg-steel-950 font-sans text-ink-100 antialiased;
+}
