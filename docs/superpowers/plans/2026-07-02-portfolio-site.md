@@ -105,6 +105,7 @@ out/
 *.tsbuildinfo
 .env*
 .DS_Store
+.superpowers/
 ```
 
 `next.config.ts`:
