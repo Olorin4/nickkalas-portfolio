@@ -105,11 +105,11 @@ export const loadRows: LoadRow[] = [
 
 export const timeline: TimelineStop[] = [
   {
-    period: "2011 – 2022",
+    period: "2011 – 2024",
     role: "Owner & Manager",
     org: "Nick Kalas Winery",
     summary:
-      "Ran a production business end to end — operations, planning, equipment, seasonal crews, customers. Eleven years of owning outcomes.",
+      "Ran a production business end to end — operations, planning, equipment, seasonal crews, customers. Thirteen years of owning outcomes.",
   },
   {
     period: "2024 – 2025",
