@@ -186,3 +186,15 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
 ];
+
+export interface Screenshot {
+  src: string;
+  title: string;
+  alt: string;
+}
+
+/**
+ * Curated product screenshots (seeded/fictional data only — never real
+ * customer data). Drop PNGs in public/screenshots/ and register them here.
+ */
+export const screenshots: Screenshot[] = [];
