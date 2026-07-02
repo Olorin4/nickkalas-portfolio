@@ -15,7 +15,7 @@ import {
 describe("site content", () => {
   it("has the three hero metrics", () => {
     expect(metrics).toHaveLength(3);
-    expect(metrics.map((m) => m.value)).toEqual(["0→1", "11 yrs", "100%"]);
+    expect(metrics.map((m) => m.value)).toEqual(["0→1", "13 yrs", "100%"]);
   });
 
   it("has valid contact links", () => {
