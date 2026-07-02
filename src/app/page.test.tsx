@@ -16,8 +16,15 @@ describe("Home page", () => {
       "skills",
       "contact",
     ]);
-    expect(container.querySelector("header")).not.toBeNull();
-    expect(container.querySelector("main")).not.toBeNull();
+    const header = container.querySelector("header");
+    const main = container.querySelector("main");
+    expect(header).not.toBeNull();
+    expect(main).not.toBeNull();
+    expect(
+      header!.compareDocumentPosition(main!) & Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(main!.querySelectorAll("section[id]")).toHaveLength(5);
+    expect(screen.getByRole("contentinfo")).toBeInTheDocument();
   });
 
   it("exposes exactly one h1", () => {

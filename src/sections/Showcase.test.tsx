@@ -45,4 +45,11 @@ describe("Showcase", () => {
     const { container } = render(<Showcase />);
     expect(container.querySelector("section#kelevo")).not.toBeNull();
   });
+
+  it("links the demo CTA to the case study when not live", () => {
+    render(<Showcase />);
+    expect(
+      screen.getByRole("link", { name: /demo — launching soon/i }),
+    ).toHaveAttribute("href", "#case-study");
+  });
 });

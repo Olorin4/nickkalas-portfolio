@@ -1,3 +1,4 @@
+import { identity } from "@/content/site";
 import { CaseStudy } from "@/sections/CaseStudy";
 import { Contact } from "@/sections/Contact";
 import { Hero } from "@/sections/Hero";
@@ -16,6 +17,13 @@ export default function Home() {
         <Skills />
         <Contact />
       </main>
+      <footer className="border-t border-ink-400/10">
+        <div className="mx-auto max-w-4xl px-6 py-6 sm:px-10">
+          <p className="font-mono text-[10.5px] tracking-wider text-ink-500">
+            © 2026 {identity.name} · built with Next.js · deployed on Cloudflare
+          </p>
+        </div>
+      </footer>
     </>
   );
 }

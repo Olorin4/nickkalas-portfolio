@@ -16,17 +16,21 @@ describe("MonoChip", () => {
   it("renders plain and accent variants", () => {
     const { rerender } = render(<MonoChip>TypeScript</MonoChip>);
     expect(screen.getByText("TypeScript")).toBeInTheDocument();
+    expect(screen.getByText("TypeScript").className).toContain("ink-400");
     rerender(<MonoChip accent>AI/OCR pipeline</MonoChip>);
     expect(screen.getByText("AI/OCR pipeline").className).toContain("amber");
   });
 });
 
 describe("StatusChip", () => {
-  it("renders the label with kind-specific styling", () => {
-    render(<StatusChip label="DELIVERED" kind="ok" />);
-    const chip = screen.getByText("DELIVERED");
-    expect(chip).toBeInTheDocument();
-    expect(chip.className).toContain("status-ok");
+  it.each([
+    ["DELIVERED", "ok", "status-ok"],
+    ["IN-TRANSIT", "warn", "amber-500"],
+    ["TENDERED", "info", "status-info"],
+    ["PLAN", "muted", "ink-400"],
+  ] as const)("renders %s with %s styling", (label, kind, token) => {
+    render(<StatusChip label={label} kind={kind} />);
+    expect(screen.getByText(label).className).toContain(token);
   });
 });
 

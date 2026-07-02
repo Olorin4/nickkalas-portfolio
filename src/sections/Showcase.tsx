@@ -22,7 +22,10 @@ export function Showcase({
         <div className="flex flex-wrap items-center justify-between gap-3">
           <SectionEyebrow>Featured system</SectionEyebrow>
           <span className="inline-flex items-center gap-2 font-mono text-[10px] tracking-widest text-ink-500 uppercase">
-            <span aria-hidden className="size-1.5 rounded-full bg-status-ok" />
+            <span
+              aria-hidden
+              className={`size-1.5 rounded-full ${demo.live ? "bg-status-ok" : "bg-amber-500"}`}
+            />
             {demo.live ? "live · demo.kelevo.ai" : "demo launching soon"}
           </span>
         </div>

@@ -1,5 +1,5 @@
 import { SectionEyebrow } from "@/components/SectionEyebrow";
-import { identity, links } from "@/content/site";
+import { links } from "@/content/site";
 
 const contactLinks = [
   { label: "Email", href: `mailto:${links.email}`, download: false },
@@ -36,12 +36,6 @@ export function Contact() {
             </a>
           ))}
         </div>
-
-        <footer className="mt-14 border-t border-ink-400/10 pt-6">
-          <p className="font-mono text-[10.5px] tracking-wider text-ink-500">
-            © 2026 {identity.name} · built with Next.js · deployed on Cloudflare
-          </p>
-        </footer>
       </div>
     </section>
   );
