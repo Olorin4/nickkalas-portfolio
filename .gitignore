@@ -5,3 +5,7 @@ out/
 .env*
 .DS_Store
 .superpowers/
+
+# Personal CV editions — kept locally, not published in this public repo.
+# (The CV the site links lives in public/cv/ and is deliberately tracked.)
+docs/cv/
