@@ -141,7 +141,7 @@ export const features: Feature[] = [
   {
     title: "AI/OCR document intake",
     description:
-      "Rate confirmations parsed on arrival — email ingestion, OCR, structured extraction into loads.",
+      "Rate confirmations imported from PDFs — OCR, validation, and structured extraction into loads.",
   },
   {
     title: "Settlements & statements",
