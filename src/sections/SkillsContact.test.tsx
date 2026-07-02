@@ -35,4 +35,13 @@ describe("Contact", () => {
     expect(cv).toHaveAttribute("href", links.cv);
     expect(cv).toHaveAttribute("download");
   });
+
+  it("opens external links in a new tab with tabnabbing protection", () => {
+    render(<Contact />);
+    for (const name of [/github/i, /linkedin/i]) {
+      const link = screen.getByRole("link", { name });
+      expect(link).toHaveAttribute("target", "_blank");
+      expect(link).toHaveAttribute("rel", "noopener noreferrer");
+    }
+  });
 });
