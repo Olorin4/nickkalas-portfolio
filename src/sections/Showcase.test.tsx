@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { features } from "@/content/site";
+import { features, ocrDemo, screenshots } from "@/content/site";
 import { Showcase } from "@/sections/Showcase";
 
 describe("Showcase", () => {
@@ -19,9 +19,24 @@ describe("Showcase", () => {
     expect(screen.getByText("Loads board")).toBeInTheDocument();
   });
 
-  it("renders no screenshot images while the list is empty", () => {
-    render(<Showcase />);
+  it("renders no screenshot images when given an empty list", () => {
+    render(<Showcase screenshotList={[]} />);
     expect(screen.queryByRole("img")).toBeNull();
+  });
+
+  it("renders every default product screenshot with its alt text", () => {
+    render(<Showcase />);
+    expect(screen.getAllByRole("img")).toHaveLength(screenshots.length);
+    for (const shot of screenshots) {
+      expect(screen.getByAltText(shot.alt)).toBeInTheDocument();
+    }
+  });
+
+  it("renders the OCR demo video with an accessible label", () => {
+    render(<Showcase />);
+    const video = screen.getByLabelText(ocrDemo.caption);
+    expect(video.tagName).toBe("VIDEO");
+    expect(video).toHaveAttribute("src", ocrDemo.src);
   });
 
   it("renders registered screenshots as console panels", () => {

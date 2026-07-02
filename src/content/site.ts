@@ -48,7 +48,7 @@ export const identity = {
 export const links = {
   email: "nick.kalas@proton.me",
   github: "https://github.com/Olorin4",
-  linkedin: "https://www.linkedin.com/in/nick-kalas",
+  linkedin: "https://www.linkedin.com/in/nick-kalas-93753841b",
   cv: "/cv/Nick_Kalaitzidis_CV_2026.pdf",
 };
 
@@ -197,4 +197,37 @@ export interface Screenshot {
  * Curated product screenshots (seeded/fictional data only — never real
  * customer data). Drop PNGs in public/screenshots/ and register them here.
  */
-export const screenshots: Screenshot[] = [];
+export const screenshots: Screenshot[] = [
+  {
+    src: "/screenshots/kelevo-loads-board.png",
+    title: "Active loads",
+    alt: "Kelévo Active Loads board: a table of loads with route, assigned driver, pickup and delivery windows, rate, and status such as Completed and Delivered, in the app's dark-sidebar interface.",
+  },
+  {
+    src: "/screenshots/kelevo-fleet-roster.png",
+    title: "Fleet roster",
+    alt: "Kelévo Fleet roster: drivers listed with their current load, equipment, compliance-risk flag, and availability status such as On Route, Dispatched, and Available.",
+  },
+  {
+    src: "/screenshots/kelevo-settlements.png",
+    title: "Owner-operator settlements",
+    alt: "Kelévo Owner-Operator Settlements: a guided setup checklist plus a run-period form for generating owner-operator settlement statements.",
+  },
+];
+
+export interface DemoVideo {
+  src: string;
+  title: string;
+  caption: string;
+}
+
+/**
+ * Screen recording of the AI/OCR rate-confirmation import flow (seeded data).
+ * Drop the file in public/media/ and register it here.
+ */
+export const ocrDemo: DemoVideo = {
+  src: "/media/ocr-rate-con-import.mp4",
+  title: "OCR rate-con import",
+  caption:
+    "A broker's rate-confirmation PDF is dropped in and Kelévo's OCR pipeline extracts the lane, dates, and rate to draft the load automatically.",
+};

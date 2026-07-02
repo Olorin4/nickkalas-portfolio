@@ -1,9 +1,11 @@
 import { ConsolePanel } from "@/components/ConsolePanel";
 import { LoadsBoard } from "@/components/LoadsBoard";
+import { OcrVideo } from "@/components/OcrVideo";
 import { SectionEyebrow } from "@/components/SectionEyebrow";
 import {
   demo,
   features,
+  ocrDemo,
   screenshots as defaultScreenshots,
   type Screenshot,
 } from "@/content/site";
@@ -46,6 +48,15 @@ export function Showcase({
         <div className="mt-8">
           <LoadsBoard />
         </div>
+
+        <figure className="mt-6">
+          <ConsolePanel title={ocrDemo.title} meta="AI / OCR">
+            <OcrVideo src={ocrDemo.src} label={ocrDemo.caption} />
+          </ConsolePanel>
+          <figcaption className="mt-2 text-xs leading-relaxed text-ink-500">
+            {ocrDemo.caption}
+          </figcaption>
+        </figure>
 
         {screenshotList.length > 0 ? (
           <div className="mt-6 grid gap-6 sm:grid-cols-2">
