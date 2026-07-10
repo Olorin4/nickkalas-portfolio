@@ -53,8 +53,8 @@ export const links = {
 };
 
 export const demo: DemoState = {
-  live: false,
-  url: "https://demo.kelevo.ai",
+  live: true,
+  url: "https://lite.kelevo.ai/#/demo",
   fallbackHref: "#case-study",
 };
 

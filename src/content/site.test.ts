@@ -25,9 +25,9 @@ describe("site content", () => {
     expect(links.cv).toMatch(/^\/cv\/.+\.pdf$/);
   });
 
-  it("demo starts not-live with a case-study fallback", () => {
-    expect(demo.live).toBe(false);
-    expect(demo.url).toBe("https://demo.kelevo.ai");
+  it("points the live demo CTA at the Kelevo Lite demo", () => {
+    expect(demo.live).toBe(true);
+    expect(demo.url).toBe("https://lite.kelevo.ai/#/demo");
     expect(demo.fallbackHref).toBe("#case-study");
   });
 

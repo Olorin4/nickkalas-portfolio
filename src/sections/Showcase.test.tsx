@@ -61,10 +61,10 @@ describe("Showcase", () => {
     expect(container.querySelector("section#kelevo")).not.toBeNull();
   });
 
-  it("links the demo CTA to the case study when not live", () => {
+  it("links the demo CTA to the live Kelevo Lite demo", () => {
     render(<Showcase />);
     expect(
-      screen.getByRole("link", { name: /demo — launching soon/i }),
-    ).toHaveAttribute("href", "#case-study");
+      screen.getByRole("link", { name: /view live demo/i }),
+    ).toHaveAttribute("href", "https://lite.kelevo.ai/#/demo");
   });
 });

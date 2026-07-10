@@ -16,23 +16,23 @@ describe("Hero", () => {
     }
   });
 
-  it("falls back to the case study while the demo is not live", () => {
+  it("links the default CTA to the live Kelevo Lite demo", () => {
     render(<Hero />);
-    const cta = screen.getByRole("link", { name: /demo — launching soon/i });
-    expect(cta).toHaveAttribute("href", "#case-study");
+    const cta = screen.getByRole("link", { name: /view live demo/i });
+    expect(cta).toHaveAttribute("href", "https://lite.kelevo.ai/#/demo");
   });
 
-  it("links to the live demo when live", () => {
+  it("falls back to the case study when not live", () => {
     render(
       <Hero
         demoState={{
-          live: true,
-          url: "https://demo.kelevo.ai",
+          live: false,
+          url: "https://lite.kelevo.ai/#/demo",
           fallbackHref: "#case-study",
         }}
       />,
     );
-    const cta = screen.getByRole("link", { name: /view live demo/i });
-    expect(cta).toHaveAttribute("href", "https://demo.kelevo.ai");
+    const cta = screen.getByRole("link", { name: /demo — launching soon/i });
+    expect(cta).toHaveAttribute("href", "#case-study");
   });
 });

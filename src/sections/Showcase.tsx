@@ -28,7 +28,7 @@ export function Showcase({
               aria-hidden
               className={`size-1.5 rounded-full ${demo.live ? "bg-status-ok" : "bg-amber-500"}`}
             />
-            {demo.live ? "live · demo.kelevo.ai" : "demo launching soon"}
+            {demo.live ? "live · lite.kelevo.ai" : "demo launching soon"}
           </span>
         </div>
 
