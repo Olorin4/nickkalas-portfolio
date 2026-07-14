@@ -16,7 +16,7 @@ export function Showcase({
   screenshotList?: Screenshot[];
 }) {
   const demoHref = demo.live ? demo.url : demo.fallbackHref;
-  const demoLabel = demo.live ? "View live demo" : "Demo — launching soon";
+  const demoLabel = demo.live ? "Launch demo" : "Demo — launching soon";
 
   return (
     <section id="kelevo" className="border-t border-ink-400/10 bg-steel-900/40">

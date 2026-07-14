@@ -73,6 +73,6 @@ accessibility.
 Pushes to `master` run GitHub Actions validation and deploy the exported `out/`
 directory to Cloudflare Workers static assets through `wrangler.jsonc`.
 
-When the live Kelevo demo is ready, `demo.live` in `src/content/site.ts` can be
-flipped from `false` to `true` so the demo CTA points to `https://demo.kelevo.ai`
-instead of the case study.
+The live Kelevo demo CTA is controlled by `demo` in `src/content/site.ts`.
+The portfolio points to the sandbox route while the Kelevo marketing site
+points to the guided tour route.

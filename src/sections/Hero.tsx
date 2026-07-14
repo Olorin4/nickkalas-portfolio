@@ -10,7 +10,7 @@ import {
 
 export function Hero({ demoState = defaultDemo }: { demoState?: DemoState }) {
   const demoHref = demoState.live ? demoState.url : demoState.fallbackHref;
-  const demoLabel = demoState.live ? "View live demo" : "Demo — launching soon";
+  const demoLabel = demoState.live ? "Launch demo" : "Demo — launching soon";
 
   return (
     <header className="relative overflow-hidden">

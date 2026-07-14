@@ -27,7 +27,7 @@ describe("site content", () => {
 
   it("points the live demo CTA at the Kelevo Lite demo", () => {
     expect(demo.live).toBe(true);
-    expect(demo.url).toBe("https://lite.kelevo.ai/#/demo");
+    expect(demo.url).toBe("https://lite.kelevo.ai/#/demo?mode=sandbox");
     expect(demo.fallbackHref).toBe("#case-study");
   });
 
