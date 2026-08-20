@@ -63,8 +63,9 @@ describe("Showcase", () => {
 
   it("links the demo CTA to the live Kelevo Lite demo", () => {
     render(<Showcase />);
-    expect(
-      screen.getByRole("link", { name: /launch demo/i }),
-    ).toHaveAttribute("href", "https://lite.kelevo.ai/#/demo?mode=sandbox");
+    expect(screen.getByRole("link", { name: /launch demo/i })).toHaveAttribute(
+      "href",
+      "https://lite.kelevo.ai/#/demo?mode=sandbox",
+    );
   });
 });
