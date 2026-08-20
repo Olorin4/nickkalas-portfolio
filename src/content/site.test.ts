@@ -15,7 +15,7 @@ import {
 describe("site content", () => {
   it("has the three hero metrics", () => {
     expect(metrics).toHaveLength(3);
-    expect(metrics.map((m) => m.value)).toEqual(["0→1", "13 yrs", "100%"]);
+    expect(metrics.map((m) => m.value)).toEqual(["0→1", "9+ yrs", "100%"]);
   });
 
   it("has valid contact links", () => {
@@ -36,7 +36,7 @@ describe("site content", () => {
     expect(SITE_URL).toMatch(/^https:\/\//);
     expect(heroChips.length).toBeGreaterThanOrEqual(6);
     expect(loadRows).toHaveLength(4);
-    expect(timeline).toHaveLength(3);
+    expect(timeline).toHaveLength(4);
     expect(features).toHaveLength(6);
     expect(skillGroups).toHaveLength(5);
   });

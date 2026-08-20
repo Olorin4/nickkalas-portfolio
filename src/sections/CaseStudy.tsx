@@ -71,12 +71,13 @@ export function CaseStudy() {
         <h3 className="mt-8 text-lg font-bold text-ink-100">The problem</h3>
         <p className="mt-2 max-w-2xl text-sm leading-relaxed text-ink-400">
           Small trucking companies run million-dollar operations on
-          spreadsheets, phone calls and inbox archaeology. As a dispatcher I
-          lived it daily: every load means a rate confirmation to parse, a
-          driver to assign, status calls to brokers, and a settlement to
-          reconcile — all manual, all error-prone. Existing TMS products are
-          priced and designed for large fleets. Kelévo is the system I wished I
-          had at the dispatch desk.
+          spreadsheets, phone calls and inbox archaeology. As an OTR driver,
+          dispatcher and logistics internal-tools developer, I saw the work from
+          each angle: every load means a rate confirmation to parse, a driver to
+          assign, status calls to brokers, and a settlement to reconcile — all
+          manual, all error-prone. Existing TMS products are priced and designed
+          for large fleets. Kelévo is the system I wished I had at the dispatch
+          desk.
         </p>
 
         <h3 className="mt-10 text-lg font-bold text-ink-100">Architecture</h3>

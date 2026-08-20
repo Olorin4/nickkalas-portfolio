@@ -42,7 +42,7 @@ export const identity = {
   role: "Founder & Founding Software Engineer",
   location: "Greece",
   tagline:
-    "Former freight dispatcher turned founder. I built Kelévo — a multi-tenant TMS SaaS — from zero to launch, solo. Product, architecture, deploy: all owned.",
+    "OTR driver → dispatcher → logistics IT and internal-tools developer → founder. I built Kelévo — a multi-tenant TMS SaaS — from zero to launch, solo.",
 };
 
 export const links = {
@@ -60,7 +60,7 @@ export const demo: DemoState = {
 
 export const metrics: Metric[] = [
   { value: "0→1", label: "Solo build, zero to launch" },
-  { value: "13 yrs", label: "Operations & business ownership" },
+  { value: "9+ yrs", label: "Trucking & logistics operations" },
   { value: "100%", label: "Product → deploy owned" },
 ];
 
@@ -105,25 +105,32 @@ export const loadRows: LoadRow[] = [
 
 export const timeline: TimelineStop[] = [
   {
-    period: "2011 – 2024",
-    role: "Owner & Manager",
-    org: "Nick Kalas Winery",
+    period: "Apr 2016 – Jul 2017",
+    role: "OTR Truck Driver",
+    org: "Varsan Trucking",
     summary:
-      "Ran a production business end to end — operations, planning, equipment, seasonal crews, customers. Thirteen years of owning outcomes.",
+      "Drove long-haul freight, gaining first-hand knowledge of routes, delivery appointments, freight documentation and driver-side operations.",
   },
   {
-    period: "2024 – 2025",
+    period: "Aug 2017 – Nov 2020",
     role: "Truck Dispatcher",
+    org: "Varsan Trucking",
+    summary:
+      "Coordinated drivers, brokers, loads, routes, pickup and delivery schedules, and operational exceptions across US freight.",
+  },
+  {
+    period: "Jan 2021 – Dec 2025",
+    role: "IT Support & Internal Tools Developer",
     org: "Iron Wing Dispatching",
     summary:
-      "Dispatched US freight — brokers, drivers, rate confirmations, settlements. Lived the operational pain that became Kelévo's spec.",
+      "Supported logistics technology and built operational dashboards, ELD-integrated live tracking, commercial-TMS API integrations and business-process automations.",
   },
   {
     period: "2024 – Present",
     role: "Founder & Founding Engineer",
     org: "Kelevo",
     summary:
-      "Self-taught via The Odin Project, then built a commercial TMS SaaS solo: product, architecture, code, infra, launch.",
+      "Built a commercial TMS SaaS solo: product, architecture, code, infrastructure and launch — informed by nine years in trucking operations and logistics technology.",
   },
 ];
 

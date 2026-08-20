@@ -13,7 +13,7 @@ export function Journey() {
         <ol className="mt-8 space-y-0">
           {timeline.map((stop, index) => (
             <li
-              key={stop.org}
+              key={`${stop.org}-${stop.period}`}
               className="relative border-l border-ink-400/15 pb-8 pl-6 last:pb-0"
             >
               <span

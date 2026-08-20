@@ -12,8 +12,8 @@ implementation, domain-driven design, deployment, and launch readiness.
 
 - **Founder-engineer execution:** Kelevo is presented as a solo-built SaaS
   product, not a toy demo.
-- **Domain context:** the portfolio connects trucking dispatch experience to
-  product and engineering decisions.
+- **Domain context:** the portfolio connects first-hand trucking, dispatch and
+  logistics-technology experience to product and engineering decisions.
 - **Technical ownership:** the site highlights backend APIs, React surfaces,
   PostgreSQL/Prisma modeling, Stripe billing, OCR document intake, and
   multi-tenant capability gating.
