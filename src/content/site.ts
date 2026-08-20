@@ -119,14 +119,14 @@ export const timeline: TimelineStop[] = [
       "Coordinated drivers, brokers, loads, routes, pickup and delivery schedules, and operational exceptions across US freight.",
   },
   {
-    period: "Jan 2021 – Dec 2025",
+    period: "Jan 2021 – Sep 2025",
     role: "IT Support & Internal Tools Developer",
     org: "Iron Wing Dispatching",
     summary:
       "Supported logistics technology and built operational dashboards, ELD-integrated live tracking, commercial-TMS API integrations and business-process automations.",
   },
   {
-    period: "2024 – Present",
+    period: "Oct 2025 – Present",
     role: "Founder & Founding Engineer",
     org: "Kelevo",
     summary:
