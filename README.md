@@ -1,78 +1,27 @@
-# Nick Kalaitzidis Portfolio
+# Nick Kalaitzidis portfolio
 
-This is the source for [nickkalas.dev](https://nickkalas.dev), a single-page
-portfolio for Nick Kalaitzidis.
+Source for [nickkalas.dev](https://nickkalas.dev), a developer portfolio with a short experience summary, a downloadable CV, and a separate Kelevo engineering case study.
 
-If you are reviewing this for a hiring process, the site is meant to show more
-than a resume summary. It frames Kelevo, a transportation-management SaaS, as a
-case study in zero-to-one product engineering: product judgment, full-stack
-implementation, domain-driven design, deployment, and launch readiness.
+## Content
 
-## What To Look For
+- `src/content/site.ts`: identity, contact links, experience, skills, and demo URL.
+- `src/app/page.tsx`: the hiring-focused homepage.
+- `src/app/work/kelevo/page.tsx`: the Kelevo case-study route.
+- `src/sections/CaseStudy.tsx`: implementation examples, test scope, and limitations.
+- `public/cv/Nick_Kalaitzidis_CV_2026.pdf`: the general single-column CV, copied from Career HQ.
+- `public/screenshots/`: demo screenshots using sample data.
+- `public/media/`: an existing OCR recording, labelled as an earlier interface.
 
-- **Founder-engineer execution:** Kelevo is presented as a solo-built SaaS
-  product, not a toy demo.
-- **Domain context:** the portfolio connects first-hand trucking, dispatch and
-  logistics-technology experience to product and engineering decisions.
-- **Technical ownership:** the site highlights backend APIs, React surfaces,
-  PostgreSQL/Prisma modeling, Stripe billing, OCR document intake, and
-  multi-tenant capability gating.
-- **Public proof:** screenshots, an OCR workflow clip, and a downloadable CV are
-  included as static assets.
+Keep copy factual: distinguish independently developed software from customer adoption, and test coverage from universal correctness guarantees. Keep the portfolio and CV chronology consistent.
 
-## Project Shape
+## Development
 
-The portfolio is a static-export Next.js site deployed through Cloudflare
-Workers static assets.
+Next.js static export, React, TypeScript, and CSS. Run `npm run dev` locally.
 
-Key files:
+Before publishing, run `npm run format:check`, `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build`. Tests cover navigation, accessible content, demo fallback, and both page layouts.
 
-- `src/content/site.ts` — central portfolio copy, links, features, screenshots,
-  and demo state.
-- `src/app/page.tsx` — page assembly.
-- `src/sections/` — the main portfolio sections.
-- `public/screenshots/` — curated seeded Kelevo screenshots.
-- `public/media/` — OCR workflow video.
-- `public/cv/` — downloadable public CV.
-- `public/og.png` — social sharing image.
+## Publishing
 
-## Tech Stack
+Pushes to `master` validate and deploy the `out/` export through Cloudflare Workers static assets. Building locally does not publish.
 
-- Next.js static export
-- React
-- TypeScript
-- Tailwind CSS
-- Vitest and Testing Library
-- `vitest-axe` accessibility check
-- Cloudflare Workers static assets
-
-## Run Locally
-
-```bash
-npm install
-npm run dev
-```
-
-The local dev server defaults to `http://localhost:3000`.
-
-## Validate
-
-```bash
-npm run format:check
-npm run lint
-npm run typecheck
-npm test
-npm run build
-```
-
-The test suite checks section composition, content rendering, links, and basic
-accessibility.
-
-## Deployment
-
-Pushes to `master` run GitHub Actions validation and deploy the exported `out/`
-directory to Cloudflare Workers static assets through `wrangler.jsonc`.
-
-The live Kelevo demo CTA is controlled by `demo` in `src/content/site.ts`.
-The portfolio points to the sandbox route while the Kelevo marketing site
-points to the guided tour route.
+The public CV now uses Career HQ’s General Software Engineer edition. Legacy CV filenames in Career HQ are retained for existing application tooling.

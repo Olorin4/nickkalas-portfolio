@@ -1,41 +1,23 @@
-import { SectionEyebrow } from "@/components/SectionEyebrow";
 import { links } from "@/content/site";
-
-const contactLinks = [
-  { label: "Email", href: `mailto:${links.email}`, download: false },
-  { label: "GitHub", href: links.github, download: false },
-  { label: "LinkedIn", href: links.linkedin, download: false },
-  { label: "Download CV", href: links.cv, download: true },
-];
-
 export function Contact() {
   return (
-    <section id="contact" className="border-t border-ink-400/10">
-      <div className="mx-auto max-w-4xl px-6 py-14 sm:px-10">
-        <SectionEyebrow>Contact</SectionEyebrow>
-        <h2 className="mt-2 text-2xl font-bold tracking-tight text-ink-100">
-          Let&apos;s talk
-        </h2>
-        <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink-400">
-          Open to founding-engineer and senior full-stack roles — especially
-          where logistics domain depth matters.
-        </p>
-
-        <div className="mt-6 flex flex-wrap gap-3">
-          {contactLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              {...(link.download ? { download: "" } : {})}
-              {...(link.href.startsWith("https://")
-                ? { target: "_blank", rel: "noopener noreferrer" }
-                : {})}
-              className="inline-flex items-center rounded-lg border border-ink-400/20 bg-ink-400/5 px-4 py-2.5 text-sm font-semibold text-ink-300 transition hover:border-amber-500/50 hover:text-amber-400"
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
+    <section id="contact" className="section">
+      <h2>Get in touch</h2>
+      <p>
+        I’m interested in full-stack and backend work, particularly software for
+        logistics, operations, and business workflows.
+      </p>
+      <div className="actions">
+        <a href={`mailto:${links.email}`}>Email</a>
+        <a href={links.github} target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>
+        <a href={links.linkedin} target="_blank" rel="noopener noreferrer">
+          LinkedIn
+        </a>
+        <a href={links.cv} download>
+          Download CV
+        </a>
       </div>
     </section>
   );

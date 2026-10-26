@@ -1,82 +1,319 @@
 @import "tailwindcss";
 
-@theme {
-  --color-steel-950: #0b0f14;
-  --color-steel-900: #0f151c;
-  --color-steel-800: #12181f;
-
-  --color-ink-100: #e6edf3;
-  --color-ink-300: #cdd8e2;
-  --color-ink-400: #9fb0bf;
-  --color-ink-500: #7f93a4;
-
-  --color-amber-400: #f7ad57;
-  --color-amber-500: #f5a623;
-  --color-amber-600: #ef9414;
-
-  --color-navy-900: #0b2f4a;
-  --color-navy-700: #125b8a;
-
-  --color-status-ok: #3ecf8e;
-  --color-status-info: #4aa3e0;
-
-  --font-sans:
-    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif;
-  --font-mono:
-    ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+:root {
+  color-scheme: light;
+  --ink: #17232c;
+  --muted: #52606b;
+  --line: #dcdfe1;
+  --link: #235d78;
 }
-
-/* Faint blueprint grid used by hero and console surfaces. */
-@utility bg-blueprint {
-  background-image:
-    repeating-linear-gradient(
-      0deg,
-      color-mix(in srgb, var(--color-ink-400) 6%, transparent) 0 1px,
-      transparent 1px 38px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      color-mix(in srgb, var(--color-ink-400) 6%, transparent) 0 1px,
-      transparent 1px 38px
-    );
+* {
+  box-sizing: border-box;
 }
-
-/* Warm amber radial glow, top-right (founder warmth over the console). */
-@utility bg-hero-glow {
-  background-image: radial-gradient(
-    circle at 88% 0%,
-    color-mix(in srgb, var(--color-amber-500) 18%, transparent),
-    transparent 42%
-  );
-}
-
-/* Navy -> transparent diagonal wash behind the hero identity. */
-@utility bg-navy-wash {
-  background-image: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--color-navy-700) 30%, transparent),
-    color-mix(in srgb, var(--color-navy-900) 10%, transparent) 52%,
-    transparent 74%
-  );
-}
-
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 1.5rem;
 }
-
+body {
+  margin: 0;
+  background: #fcfcfa;
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+a {
+  color: var(--link);
+  text-underline-offset: 4px;
+  text-decoration: underline;
+}
+a:hover {
+  color: #102e40;
+}
+a:focus-visible,
+video:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #235d78;
+  outline-offset: 5px;
+}
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+dl,
+figure {
+  margin: 0;
+}
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  font-weight: 600;
+}
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.5rem, 6vw, 3.7rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+h2 {
+  font-size: 1.5rem;
+  letter-spacing: -0.025em;
+}
+h3 {
+  font-size: 1.08rem;
+}
+p + p {
+  margin-top: 1rem;
+}
+ul,
+ol {
+  padding-left: 1.25rem;
+}
+li + li {
+  margin-top: 0.45rem;
+}
+.shell {
+  max-width: 960px;
+  margin-inline: auto;
+  padding-inline: 40px;
+}
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding-block: 25px;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.87rem;
+}
+.site-header a {
+  text-decoration: none;
+}
+.site-name {
+  color: var(--ink);
+  font-weight: 700;
+}
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 12px;
+  padding: 10px;
+  background: white;
+  z-index: 10;
+}
+.skip-link:focus {
+  top: 12px;
+}
+.intro {
+  padding-block: 64px 52px;
+  max-width: 760px;
+}
+.eyebrow,
+.date,
+.caption {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+.eyebrow {
+  margin-bottom: 14px;
+}
+.intro > p:not(.eyebrow) {
+  margin-top: 22px;
+  max-width: 690px;
+}
+.availability {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px 24px;
+  margin-top: 26px;
+  font-size: 0.95rem;
+}
+.button {
+  display: inline-block;
+  border: 1px solid var(--ink);
+  padding: 10px 18px;
+  color: #fff;
+  background: var(--ink);
+  text-decoration: none;
+  border-radius: 3px;
+}
+.button:hover {
+  color: #fff;
+  background: #31424e;
+}
+.section {
+  padding-block: 40px;
+  border-top: 1px solid var(--line);
+}
+.section > h2 {
+  margin-bottom: 28px;
+}
+.experience-list {
+  list-style: none;
+  padding: 0;
+}
+.experience-list > li {
+  display: grid;
+  grid-template-columns: 155px 1fr;
+  gap: 25px;
+}
+.experience-list > li + li {
+  margin-top: 30px;
+}
+.experience-list p {
+  margin-top: 9px;
+}
+.experience-list .date {
+  margin-top: 0;
+}
+.employer {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.work-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.work-summary {
+  max-width: 730px;
+}
+.work-image {
+  margin-top: 25px;
+}
+.work-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+}
+figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.83rem;
+}
+.skills {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 10px 24px;
+  margin-top: 25px;
+  font-size: 0.94rem;
+}
+.skills dt {
+  font-weight: 600;
+}
+.skills dd {
+  margin: 0;
+  color: var(--muted);
+}
+.site-footer {
+  padding-block: 25px 36px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+.case-intro {
+  padding-block: 42px;
+}
+.case-intro h1 {
+  margin-top: 24px;
+}
+.case-intro p {
+  margin-top: 18px;
+  max-width: 720px;
+}
+.article {
+  max-width: 760px;
+}
+.article h2 {
+  margin-bottom: 18px;
+}
+.article h3 {
+  margin-block: 28px 12px;
+}
+.article ul,
+.article ol,
+.article dl {
+  margin-block: 16px;
+}
+.article video {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 18px;
+  border: 1px solid var(--line);
+}
+.article .architecture {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 13px 24px;
+}
+.architecture dt {
+  font-weight: 600;
+}
+.architecture dd {
+  margin: 0;
+}
+.evidence {
+  border-left: 2px solid var(--line);
+  padding-left: 20px;
+  margin-top: 20px;
+}
+.evidence p {
+  font-size: 0.95rem;
+}
+@media (max-width: 640px) {
+  body {
+    font-size: 16px;
+  }
+  .shell {
+    padding-inline: 22px;
+  }
+  .site-header {
+    align-items: flex-start;
+    gap: 16px;
+  }
+  nav {
+    gap: 12px;
+  }
+  .intro {
+    padding-block: 42px 36px;
+  }
+  .section {
+    padding-block: 32px;
+  }
+  .experience-list > li {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .skills,
+  .article .architecture {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .skills dd,
+  .architecture dd {
+    margin-bottom: 12px;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-
-body {
-  @apply bg-steel-950 font-sans text-ink-100 antialiased;
 }

@@ -1,43 +1,22 @@
 import { describe, expect, it } from "vitest";
-import {
-  SITE_URL,
-  demo,
-  features,
-  heroChips,
-  identity,
-  links,
-  loadRows,
-  metrics,
-  skillGroups,
-  timeline,
-} from "@/content/site";
-
-describe("site content", () => {
-  it("has the three hero metrics", () => {
-    expect(metrics).toHaveLength(3);
-    expect(metrics.map((m) => m.value)).toEqual(["0→1", "9+ yrs", "100%"]);
-  });
-
-  it("has valid contact links", () => {
+import { demo, links, timeline } from "@/content/site";
+describe("Portfolio content", () => {
+  it("keeps public contact and document links usable", () => {
     expect(links.email).toContain("@");
     expect(links.github).toMatch(/^https:\/\/github\.com\//);
-    expect(links.linkedin).toMatch(/^https:\/\/www\.linkedin\.com\//);
+    expect(links.linkedin).toBe(
+      "https://www.linkedin.com/in/nick-kalas-93753841b",
+    );
     expect(links.cv).toMatch(/^\/cv\/.+\.pdf$/);
   });
-
-  it("points the live demo CTA at the Kelevo Lite demo", () => {
-    expect(demo.live).toBe(true);
-    expect(demo.url).toBe("https://lite.kelevo.ai/#/demo?mode=sandbox");
-    expect(demo.fallbackHref).toBe("#case-study");
+  it("preserves the demo entry route and a separate walkthrough fallback", () => {
+    expect(demo.url).toBe("https://tms.kelevo.ai/#/demo?mode=sandbox");
+    expect(demo.fallbackHref).toBe("/work/kelevo#walkthrough");
   });
-
-  it("has substantive section data", () => {
-    expect(identity.name).toBe("Nick Kalaitzidis");
-    expect(SITE_URL).toMatch(/^https:\/\//);
-    expect(heroChips.length).toBeGreaterThanOrEqual(6);
-    expect(loadRows).toHaveLength(4);
-    expect(timeline).toHaveLength(4);
-    expect(features).toHaveLength(6);
-    expect(skillGroups).toHaveLength(5);
+  it("preserves the established technical experience dates", () => {
+    expect(timeline.map((item) => item.period)).toEqual([
+      "Oct 2025 – Present",
+      "Jan 2021 – Sep 2025",
+    ]);
   });
 });

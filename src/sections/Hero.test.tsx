@@ -1,41 +1,20 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { identity, metrics } from "@/content/site";
+import { identity, links } from "@/content/site";
 import { Hero } from "@/sections/Hero";
-
 describe("Hero", () => {
-  it("renders name, role, tagline, pill, and metrics", () => {
+  it("offers direct access to the CV and contact details", () => {
     render(<Hero />);
     expect(
       screen.getByRole("heading", { level: 1, name: identity.name }),
     ).toBeInTheDocument();
-    expect(screen.getByText(/founding software engineer/i)).toBeInTheDocument();
-    expect(screen.getByText(/open to work/i)).toBeInTheDocument();
-    for (const metric of metrics) {
-      expect(screen.getByText(metric.value)).toBeInTheDocument();
-    }
-  });
-
-  it("links the default CTA to the live Kelevo Lite demo", () => {
-    render(<Hero />);
-    const cta = screen.getByRole("link", { name: /launch demo/i });
-    expect(cta).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Download CV" })).toHaveAttribute(
       "href",
-      "https://lite.kelevo.ai/#/demo?mode=sandbox",
+      links.cv,
     );
-  });
-
-  it("falls back to the case study when not live", () => {
-    render(
-      <Hero
-        demoState={{
-          live: false,
-          url: "https://lite.kelevo.ai/#/demo?mode=sandbox",
-          fallbackHref: "#case-study",
-        }}
-      />,
+    expect(screen.getByRole("link", { name: "Email me" })).toHaveAttribute(
+      "href",
+      `mailto:${links.email}`,
     );
-    const cta = screen.getByRole("link", { name: /demo — launching soon/i });
-    expect(cta).toHaveAttribute("href", "#case-study");
   });
 });

@@ -1,47 +1,30 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { links, skillGroups } from "@/content/site";
+import { links } from "@/content/site";
 import { Contact } from "@/sections/Contact";
 import { Skills } from "@/sections/Skills";
-
-describe("Skills", () => {
-  it("renders every group label and every skill chip", () => {
+describe("Background", () => {
+  it("keeps the operations history distinguishable from development", () => {
     render(<Skills />);
-    for (const group of skillGroups) {
-      expect(screen.getByText(group.label)).toBeInTheDocument();
-      for (const skill of group.skills) {
-        expect(screen.getByText(skill)).toBeInTheDocument();
-      }
-    }
+    expect(screen.getByText(/Apr 2016 – Jul 2017/)).toBeInTheDocument();
+    expect(screen.getByText(/Aug 2017 – Nov 2020/)).toBeInTheDocument();
   });
 });
-
 describe("Contact", () => {
-  it("renders email, GitHub, LinkedIn, and CV download links", () => {
+  it("exposes working email, profile, and download links", () => {
     render(<Contact />);
-    expect(screen.getByRole("link", { name: /email/i })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Email" })).toHaveAttribute(
       "href",
       `mailto:${links.email}`,
     );
-    expect(screen.getByRole("link", { name: /github/i })).toHaveAttribute(
-      "href",
-      links.github,
+    expect(screen.getByRole("link", { name: "Download CV" })).toHaveAttribute(
+      "download",
     );
-    expect(screen.getByRole("link", { name: /linkedin/i })).toHaveAttribute(
-      "href",
-      links.linkedin,
-    );
-    const cv = screen.getByRole("link", { name: /download cv/i });
-    expect(cv).toHaveAttribute("href", links.cv);
-    expect(cv).toHaveAttribute("download");
-  });
-
-  it("opens external links in a new tab with tabnabbing protection", () => {
-    render(<Contact />);
-    for (const name of [/github/i, /linkedin/i]) {
-      const link = screen.getByRole("link", { name });
-      expect(link).toHaveAttribute("target", "_blank");
-      expect(link).toHaveAttribute("rel", "noopener noreferrer");
+    for (const name of ["GitHub", "LinkedIn"]) {
+      expect(screen.getByRole("link", { name })).toHaveAttribute(
+        "rel",
+        "noopener noreferrer",
+      );
     }
   });
 });

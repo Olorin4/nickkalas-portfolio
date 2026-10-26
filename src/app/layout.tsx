@@ -1,16 +1,8 @@
 import type { Metadata } from "next";
 import { SITE_URL, identity } from "@/content/site";
 import "./globals.css";
-
 const description =
-  "OTR driver, dispatcher and logistics internal-tools developer turned founder. Built Kelévo — a multi-tenant TMS SaaS for trucking operations — solo, zero to launch.";
-const ogImage = {
-  url: "/og.png",
-  width: 1200,
-  height: 630,
-  alt: `${identity.name} — ${identity.role}`,
-};
-
+  "Full-stack developer based in Greece. TypeScript, React, Node.js, and PostgreSQL, with experience in logistics technology and internal tools.";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: `${identity.name} — ${identity.role}`,
@@ -21,14 +13,17 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: identity.name,
     type: "website",
-    images: [ogImage],
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: `${identity.name} — ${identity.role}`,
+      },
+    ],
   },
-  twitter: {
-    card: "summary_large_image",
-    images: [ogImage],
-  },
+  twitter: { card: "summary_large_image", images: ["/og.png"] },
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
